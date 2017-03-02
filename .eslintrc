@@ -1,0 +1,7 @@
+{
+    "extends": ["xo/esnext", "xo-react"],
+    "rules": {
+        "indent": [1, 4],
+        "react/jsx-indent": [1, 4]
+    }
+}
