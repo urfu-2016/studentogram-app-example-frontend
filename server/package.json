@@ -1,0 +1,14 @@
+{
+  "name": "studentogram-react-backend",
+  "version": "0.0.1",
+  "description": "Example backend for simple chat project on react",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Anton Konev <evilj0e@yandex-team.ru>",
+  "license": "MIT",
+  "dependencies": {
+    "socket.io": "^1.7.3"
+  }
+}
