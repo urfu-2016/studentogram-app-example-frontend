@@ -1,5 +1,7 @@
 import React from 'react';
 import randomWord from 'random-lorem';
+import {connect} from 'react-redux';
+
 import styles from './style.css';
 
 import Proxy from '../../models/Proxy';
@@ -96,4 +98,6 @@ class App extends React.Component {
     }
 }
 
-export default App;
+export default connect(state => {
+    return {...state};
+})(App);
