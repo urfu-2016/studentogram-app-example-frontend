@@ -1,0 +1,9 @@
+.chatTitle {
+    font-weight: bold;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    top: 0;
+    background: #fff;
+    border-bottom: 1px solid #d8d8d8;
+}

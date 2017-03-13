@@ -1,0 +1,7 @@
+.chat {
+    width: calc(100% - 302px);
+    height: calc(100% - 50px);
+    display: block;
+    float: right;
+    position: relative;
+}

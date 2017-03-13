@@ -1,0 +1,9 @@
+.chatInput {
+    height: 16px;
+    border: 0px;
+    border-top: 1px solid #d8d8d8;
+    width: calc(100% - 32px);
+    padding: 16px;
+    font-size: 15px;
+    outline: none;
+}

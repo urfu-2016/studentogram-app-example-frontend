@@ -1,0 +1,42 @@
+.chatBodyWrapper {
+    overflow: scroll;
+    height: inherit;
+}
+
+.chatBody {
+    padding: 20px;
+}
+
+.chatEmpty {
+    text-align: center;
+    color: #444;
+}
+
+.chatMessageItem {
+    min-height: 60px;
+}
+.chatMessageItem:before {
+    content: '';
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    border-radius: 25px;
+    border: 1px solid #ddd;
+    background: #f4f4f4;
+    margin-right: 12px;
+    float: left;
+}
+
+.chatMessageAuthor {
+    font-weight: bold;
+    text-transform: capitalize;
+    display: block;
+    margin-bottom: 3px;
+    padding-top: 5px;
+    color: #357fb8;
+}
+
+.chatMessageContent {
+    margin-left: 64px;
+    display: block;
+}
