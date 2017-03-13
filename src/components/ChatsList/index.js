@@ -1,6 +1,9 @@
 /* eslint react/jsx-no-bind: 0 */
 
 import React, {PureComponent, PropTypes} from 'react';
+import {connect} from 'react-redux';
+
+import {selectChat} from '../../actions/chats.js';
 
 import ChatsItem from '../ChatsItem';
 
@@ -9,7 +12,7 @@ import styles from './style.css';
 /**
  * List of the all chats
  */
-export default class ChatsList extends PureComponent {
+class ChatsList extends PureComponent {
     constructor() {
         super(...arguments);
 
@@ -17,10 +20,10 @@ export default class ChatsList extends PureComponent {
     }
 
     handleClick(name) {
-        const {chat, onSelectHandler} = this.props;
+        const {chat, selectChat} = this.props;
 
         if (name && chat !== name) {
-            onSelectHandler(name);
+            selectChat(name);
         }
     }
 
@@ -45,10 +48,26 @@ export default class ChatsList extends PureComponent {
 ChatsList.propTypes = {
     chat: PropTypes.string,
     chats: PropTypes.array,
-    onSelectHandler: PropTypes.func
+    selectChat: PropTypes.func
 };
 
 ChatsList.defaultProps = {
-    chats: [],
-    onSelectHandler: () => {}
+    chats: []
 };
+
+const mapStateToProps = state => {
+    return {
+        chat: state.chat,
+        chats: state.chats
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        selectChat: payload => {
+            dispatch(selectChat(payload));
+        }
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ChatsList);

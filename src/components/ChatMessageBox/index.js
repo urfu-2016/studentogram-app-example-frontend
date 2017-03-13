@@ -1,11 +1,14 @@
 import React, {PropTypes, Component} from 'react';
+import {connect} from 'react-redux';
+
+import {sendMessage} from '../../actions/server.js';
 
 import styles from './style.css';
 
 /**
  * Message box with own behaviour
  */
-export default class ChatMessageBox extends Component {
+class ChatMessageBox extends Component {
     constructor() {
         super(...arguments);
 
@@ -18,7 +21,9 @@ export default class ChatMessageBox extends Component {
 
     handleKeyUp(e) {
         if (e.key === 'Enter' && this._input.value) {
-            this.props.onSendHandler(this._input.value);
+            const {send, author, chat} = this.props;
+
+            send({author, chat, message: this._input.value});
             this._input.value = '';
         }
     }
@@ -37,10 +42,22 @@ export default class ChatMessageBox extends Component {
 }
 
 ChatMessageBox.propTypes = {
-    onSendHandler: PropTypes.func
+    send: PropTypes.func,
+    author: PropTypes.string,
+    chat: PropTypes.string
 };
 
-ChatMessageBox.defaultProps = {
-    onSendHandler: () => {}
+const mapStateToProps = state => {
+    return {
+        author: state.userName,
+        chat: state.chat
+    };
 };
 
+const mapDispatchToProps = dispatch => {
+    return {
+        send: ({author, chat, message}) => dispatch(sendMessage(author, chat, message))
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ChatMessageBox);

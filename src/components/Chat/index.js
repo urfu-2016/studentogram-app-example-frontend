@@ -1,4 +1,4 @@
-import React, {PureComponent, PropTypes} from 'react';
+import React, {PureComponent} from 'react';
 
 import ChatTitle from '../ChatTitle';
 import ChatStream from '../ChatStream';
@@ -11,20 +11,13 @@ import styles from './style.css';
  */
 export default class Chat extends PureComponent {
     render() {
-        const {chat, messages, onSendHandler} = this.props;
-
         return (
             <div className={styles.chat}>
-                <ChatTitle chat={chat}/>
-                <ChatStream messages={messages}/>
-                <ChatMessageBox onSendHandler={onSendHandler}/>
+                <ChatTitle/>
+                <ChatStream/>
+                <ChatMessageBox/>
             </div>
         );
     }
 }
 
-Chat.propTypes = {
-    chat: PropTypes.string,
-    messages: PropTypes.array,
-    onSendHandler: PropTypes.func
-};

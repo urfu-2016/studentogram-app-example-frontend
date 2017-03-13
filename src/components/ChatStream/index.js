@@ -1,11 +1,12 @@
 import React, {PropTypes, PureComponent} from 'react';
+import {connect} from 'react-redux';
 
 import styles from './style.css';
 
 /**
  * Implements message's stream of some chat
  */
-export default class ChatStream extends PureComponent {
+class ChatStream extends PureComponent {
     render() {
         const {messages} = this.props;
 
@@ -41,3 +42,11 @@ ChatStream.propTypes = {
 ChatStream.defaultProps = {
     messages: []
 };
+
+const mapStateToProps = state => {
+    return {
+        messages: state.messages
+    };
+};
+
+export default connect(mapStateToProps)(ChatStream);
