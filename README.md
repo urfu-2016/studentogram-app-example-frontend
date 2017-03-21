@@ -36,6 +36,6 @@ npm run build
 
 ## Links
 
-[Lecture](#)
+[Slides](https://github.com/urfu-2016/webdev-slides/tree/master/09-react-redux)
 
-[Server](#)
+[Backend repo](https://github.com/urfu-2016/studentogram-app-example-backend)
